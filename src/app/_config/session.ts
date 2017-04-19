@@ -1,14 +1,21 @@
 export class Session{
-	key = "currentUser"
+	public key = "currentUser"
 
 	create(user){
 		localStorage.setItem(this.key, JSON.stringify(user))
+		
+		localStorage.setItem("authorization", 'true')
 	}
 
 	currentUser(){
 		return localStorage.getItem(JSON.parse(this.key))
 	}
 
+	authenticated(){
+		return localStorage.getItem("authorization")
+		//return localStorage.get("autorization", true)
+	}
+	
 	setCurrentUser(user){
 		this.remove()
 		this.create(user)
@@ -18,5 +25,9 @@ export class Session{
 
 	remove(){
 		localStorage.removeItem(this.key)
+	}
+
+	logout(){
+		localStorage.removeItem("authorization")
 	}
 }

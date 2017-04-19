@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavComponent } from './nav/nav.component';
+import { Session } from './_config/session'
 
 @Component({
   selector: 'app-root',

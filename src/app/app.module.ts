@@ -11,13 +11,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TaskComponent } from './task/task.component';
 
+import { LoginService } from './_services/login.service';
+import { AuthGuard } from './_config/auth.guard';
+import { NavComponent } from './nav/nav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    TaskComponent
+    TaskComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,10 @@ import { TaskComponent } from './task/task.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
